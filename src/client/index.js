@@ -1,5 +1,5 @@
-import { validateUrl } from './js/urlValidator'
-import { handleSubmit } from './js/formHandler'
+import { application } from './js/application';
+import { formHandler } from './js/formHandler';
 
 import './styles/resets.scss';
 import './styles/base.scss';
@@ -10,7 +10,7 @@ import './styles/footer.scss';
 
 
 export {
-  validateUrl,
-  handleSubmit
+ application,
+ formHandler
 }
 
