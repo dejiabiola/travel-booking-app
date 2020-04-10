@@ -1,4 +1,4 @@
-# Udacity Project: Front End Nanodegree Degree Capstone Project
+# Udacity Front End Nanodegree Capstone Project
 
 # A Travel Booking Site
 
