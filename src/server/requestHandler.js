@@ -1,35 +1,73 @@
-const aylien = require('aylien_textapi');
+const fetch = require("node-fetch");
 
-// Set aylien API credentials
-var textapi = new aylien({
-  application_id: process.env.API_ID,
-  application_key: process.env.API_KEY
-});
 
-function getArticle(req,res) {
-  textapi.sentiment({
-    url: req.body.url
-    }, 
-    function(error, response) {
-      res.send(response);
-    }
-  );
+async function getCoordinates(req,res) {
+
+  const response = await fetch(`http://api.geonames.org/searchJSON?q=${req.body.destination}&maxRows=1&username=deji_abiola`)
+
+  try {
+    const data = await response.json();
+    res.send(data);
+  } catch(error) {
+    console.log({"error": error});
+  }
+};
+
+async function getWeather(req, res) {
+  const apiKey = process.env.WEATHER_API_KEY
+  const response = await fetch(`https://api.weatherbit.io/v2.0/current?lat=${req.body.latitude}&lon=${req.body.longitude}&key=${apiKey}`)
+ 
+
+  try {
+    const data = await response.json();
+    res.send(data);
+  } catch(error) {
+    console.log(error);
+  }
 }
 
-function getText(req,res) {
-  textapi.sentiment({
-    text: req.body.url
-    }, 
-    function(error, response) {
-      res.send(response);
-    }
-  );
+async function getImage(req, res) {
+  const city = req.body.destination.replace(/\s/g, '+');
+  const apiKey = process.env.IMAGE_API_KEY
+
+  let response = await fetch(`https://pixabay.com/api/?key=${apiKey}&q=${city}&image_type=photo`);
+  try {
+    let data = await response.json();
+    if (data.totalhits > 0) {
+      res.send(data);
+    } else {
+      const country = req.body.country.replace(/\s/g, '+');
+      let response = await fetch(`https://pixabay.com/api/?key=${apiKey}&q=${country}&image_type=photo`);
+      try {
+        let data = await response.json();
+        if (data.totalhits > 0) {
+          res.send(data);
+        } else {
+          res.send({"use_placeholder": true})
+        }
+      } catch(error) {
+        console.log(error)
+      }
+    }  
+  } catch(error) {
+    console.log(error);
+  }
+}
+
+async function getCountryDetail(req, res) {
+  const response = await fetch(`https://restcountries.eu/rest/v2/name/${req.body.countryCode}?fullText=true`);
+
+  try {
+    const data = await response.json();
+    res.send(data);
+  } catch(error) {
+    console.log(error);
+  }
 }
 
 
 
-
-
-
-exports.getArticle = getArticle;
-exports.getText = getText;
+exports.getCoordinates = getCoordinates;
+exports.getWeather = getWeather;
+exports.getImage = getImage;
+exports.getCountryDetail = getCountryDetail;

@@ -39,6 +39,12 @@ app.get('/test', function (req, res) {
 })
 
 
-app.post('/article', requestHandler.getArticle)
+app.post('/getCoordinates', requestHandler.getCoordinates);
+
+app.post('/getWeather', requestHandler.getWeather)
+
+app.post('/getImage', requestHandler.getImage)
+
+app.post('/getCountryDetail', requestHandler.getCountryDetail)
 
 

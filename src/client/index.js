@@ -1,5 +1,5 @@
-import { application } from './js/application';
-import { formHandler } from './js/formHandler';
+import { init } from './js/app'
+
 
 import './styles/resets.scss';
 import './styles/base.scss';
@@ -9,8 +9,9 @@ import './styles/results.scss';
 import './styles/footer.scss';
 
 
-export {
- application,
- formHandler
-}
+window.addEventListener("DOMContentLoaded", init);
+
+// export {
+//  app
+// }
 

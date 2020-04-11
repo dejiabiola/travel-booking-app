@@ -12,6 +12,9 @@ module.exports = {
       libraryTarget: 'var',
       library: 'Client'
     },
+    externals: {
+      jquery: 'jQuery'
+    },
     module: {
         rules: [
             {
