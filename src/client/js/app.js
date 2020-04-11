@@ -1,13 +1,14 @@
-// import { getCordinates, getWeather, getImage, getCountryDetails } from './api'; 
-import { secondsToDhm } from './helpers';
-import { addDestination } from './addDestination';
+import { setDateMinimum } from './helpers';
+import { addTrip } from './addDestination';
 import { getApiData } from './getData';
+import { validateForm } from './formValidation';
 
 
 
 
 export const init = function() {
- 
+
+    setDateMinimum();
 
   // if (departureDate.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
   //   document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
@@ -16,6 +17,7 @@ export const init = function() {
   //   const departureCity = document.getElementById('departure_city');
   //   departureCity.datepicker();
   // }
+
   
   const submitButton = document.getElementById('submit');
   const addButton = document.getElementById('add_button');
@@ -24,46 +26,14 @@ export const init = function() {
   submitButton.addEventListener('click', function(event) {
     event.preventDefault();
 
-    const departureField = document.getElementById('departure_date');
-    const departureDate = departureField.value;
-    const depatureCity = document.getElementById('departure_city').value;
-    const destination = document.getElementById('arrival_city').value;
-    const arrivalDate = document.getElementById('arrival_date').value;
-
-    const newTrip = {
-      'location': depatureCity,
-      'departure_date': departureDate,
-      'destination': destination,
-      'arrival_date': arrivalDate
-    }
-
-    const todayDate = new Date()
-    const departureDateRefact = new Date(departureDate)
-    var secondsTodeparture = (departureDateRefact - todayDate) / 1000;
-    const daysToGo = secondsToDhm(secondsTodeparture);
+    const newTrip = validateForm();
 
     getApiData(newTrip)
     .then(data => console.log(data))
     
-    // departureDate.setAttribute('min', )    
+    
   })
 
-  addButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    addDestination(destinationCity, arrivalDate);
-    console.log('destination fix')
-  })
-
+  
+  addButton.addEventListener('click', addTrip)
 }
-
-
- 
-
-
-
-
-
-
-
-
-
