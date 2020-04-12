@@ -5,7 +5,7 @@ export const secondsToDhm = function(seconds) {
   const minute = Math.floor(seconds % 3600 / 60);
   const second = Math.floor(seconds % 60);
   
-  const dayDisplay = day + " days";
+  const dayDisplay = (day + 1) + " days";
   const hourDisplay = hour > 0 ? hour + (hour == 1 ? " hour, " : " hours, ") : "";
   const minuteDisplay = minute > 0 ? minute + (minute == 1 ? " minute" : " minutes") : "";
   
@@ -58,25 +58,42 @@ export const setDateMinimum = function() {
   arrivalDate.setAttribute('min', year + "-" + month + "-" + day);
 }
   
-export const daysToTravel = function(departureDate) {
+export const daysToTravel = function(newTrip) {
 
   const todayDate = new Date()
-  const departureDateRefact = new Date(departureDate)
+  const departureDateRefact = new Date(newTrip.departureDate)
   const secondsTodeparture = (departureDateRefact - todayDate) / 1000;
   const daysToGo = secondsToDhm(secondsTodeparture);
-  return daysToGo;
+  newTrip.daysToGo = daysToGo;
+  return newTrip
 } 
 
-export const dateDifference = function(departureDate, returnDate) {
-  const departureDateRefact = new Date(departureDate);
-  const returnDateRefact = new Date(returnDate);
-  const secondsDifference = (departureDateRefact - returnDateRefact) / 1000;
-  const daysToGo = secondsToDhm(secondsDifference);
-  return daysToGo;
+export const tripDaysDifference = function(newTrip) {
+  const departureDateRefact = new Date(newTrip.departureDate);
+  const returnDateRefact = new Date(newTrip.arrivalDate);
+  console.log("depart", departureDateRefact);
+  console.log("arrive", returnDateRefact)
+  const secondsDifference = (returnDateRefact - departureDateRefact) / 1000;
+  console.log("seconds", secondsDifference)
+  const daysOfTrip = secondsToDhm(secondsDifference);
+  newTrip.daysOfTrip = daysOfTrip
+  return newTrip;
 }
 
 export const prepareResultSection = function() {
   const resultSection = document.getElementById('result_section');
   resultSection.classList.add('prepare-section');
   scrollToSection('result_section');
+}
+
+export const formatDate = function(date) {
+  const dateArray = date.split("-");
+
+  return `${dateArray[2]} ${getMonth(dateArray[1])}, ${dateArray[0]}`
+
+}
+
+function getMonth(month) {
+  const monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  return monthArray[month - 1];
 }

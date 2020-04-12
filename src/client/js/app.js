@@ -21,7 +21,7 @@ export const init = function() {
 
   
   const submitButton = document.getElementById('submit');
-  const addButton = document.getElementById('add_button');
+  // const addButton = document.getElementById('add_button');
 
 
   submitButton.addEventListener('click', function(event) {
@@ -34,11 +34,14 @@ export const init = function() {
     }
 
     getApiData(newTrip)
-    .then(data => populateUi(data))
+    .then(data => {
+      console.log(data);
+      populateUi(data);
+    })
     
     
   })
 
   
-  addButton.addEventListener('click', addTrip)
+  // addButton.addEventListener('click', addTrip)
 }

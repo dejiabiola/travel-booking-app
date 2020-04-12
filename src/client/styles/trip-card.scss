@@ -1,0 +1,48 @@
+#trip_card {
+  background-color: white;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.trip_image {
+  width: 400px;
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.svg {
+  width: 30px;
+  height: 30px;
+  margin-right: 30px;
+  margin-left: 15px;
+}
+
+.trip_destination, .trip_time_outer, .weather_forecast, .interactive_buttons, .trip_days_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.facts {
+  text-align: center;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.interactive_buttons {
+  padding: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+button {
+  background-color: red;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+}

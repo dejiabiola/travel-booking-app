@@ -7,6 +7,7 @@ import './styles/header.scss'
 import './styles/form.scss';
 import './styles/results.scss';
 import './styles/footer.scss';
+import './styles/trip-card.scss'
 
 // import backgroundImage from './media/background1.jpg';
 // import logo from './media/logo.svg';

@@ -1,4 +1,4 @@
-import { isFutureDate, showErrorMessage, isDateAfterThatDate, prepareResultSection  } from './helpers';
+import { isFutureDate, showErrorMessage, isDateAfterThatDate, prepareResultSection, formatDate  } from './helpers';
 
 
 export const validateForm = function() {
@@ -79,11 +79,14 @@ export const validateForm = function() {
   if (!errors) {
     prepareResultSection();
 
+    const formatDepartureDate = formatDate(departureDate.value);
+    const formatReturnDate = formatDate(arrivalDate.value);
+ 
     return {
       location: departureCity.value, 
       destination: destination.value, 
-      departureDate: departureDate.value, 
-      arrivalDate: arrivalDate.value
+      departureDate: formatDepartureDate, 
+      arrivalDate: formatReturnDate
     }
   } else {
     return false;
