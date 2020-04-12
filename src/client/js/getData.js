@@ -26,9 +26,6 @@ export const getApiData = async function(newTrip) {
         console.log(error);
         let errors = '';
         errors += '<p>Error: Unknown destination</p>';
-        const button = document.getElementById('submit');
-        button.disabled = false;
-        button.style.cursor = "pointer"
         apiError(errors)
         newTrip.error = true;
         return;

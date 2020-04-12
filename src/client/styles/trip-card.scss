@@ -1,9 +1,11 @@
-#trip_card {
+.trip_card {
   background-color: white;
   width: 650px;
   border-radius: 10px;
   max-width: 100%;
-  margin-right: 50px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .trip_data {

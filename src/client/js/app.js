@@ -1,7 +1,8 @@
-import { setDateMinimum } from './helpers';
+import { setDateMinimum, prepareResultSection } from './helpers';
 import { getApiData } from './getData';
 import { validateForm } from './formValidation';
 import { populateUi } from './populateUi';
+import { saveTripToLocalStorage, getTripsFromLocalStorage } from './localStorage';
 
 
 
@@ -10,6 +11,12 @@ export const init = function() {
 
     // Set the min attribute in the input date field dynamically
     setDateMinimum();
+
+    const savedTripsArray = getTripsFromLocalStorage();
+    if (savedTripsArray) {
+      prepareResultSection();
+      populateUi(savedTripsArray);
+    }
 
   // if (departureDate.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
   //   document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
@@ -21,8 +28,6 @@ export const init = function() {
 
   
   const submitButton = document.getElementById('submit');
-  // const addButton = document.getElementById('add_button');
-
 
   submitButton.addEventListener('click', function(event) {
     event.preventDefault();
@@ -41,7 +46,8 @@ export const init = function() {
       if (data.error) {
         return;
       }
-      populateUi(data);
+      const userArray = saveTripToLocalStorage(data);
+      populateUi(userArray);
     }) 
   })
 

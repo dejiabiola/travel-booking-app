@@ -1,3 +1,5 @@
+import { checkLocalStorageArray } from "./localStorage";
+
 export const secondsToDhm = function(seconds) {
   // Convert seconds to days, hours and minutes
   seconds = Number(seconds);
@@ -85,7 +87,7 @@ export const prepareResultSection = function() {
   const resultSection = document.getElementById('result_section');
   resultSection.classList.remove('display-hide');
   resultSection.classList.add('prepare-section');
-  scrollToSection('result_section');
+  scrollToSection('footer');
 }
 
 export const destroyResultSection = function() {
@@ -107,7 +109,11 @@ function getMonth(month) {
 }
 
 export const apiError = function(error) {
-  destroyResultSection();
+  if (!checkLocalStorageArray()) {
+    destroyResultSection();
+  }
   showErrorMessage(error);
   scrollToSection('body_section')
 }
+
+
