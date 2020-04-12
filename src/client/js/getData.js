@@ -1,4 +1,4 @@
-import { daysToTravel, tripDaysDifference } from "./helpers";
+import { daysToTravel, tripDaysDifference, apiError, destroyResultSection } from "./helpers";
 
 
 
@@ -17,12 +17,18 @@ export const getApiData = async function(newTrip) {
       })
       try {
         let data = await coordinateResponse.json();
+        
         newTrip.destinationCode = data.geonames[0].countryCode;
         newTrip.longitude = data.geonames[0].lng;
         newTrip.latitude = data.geonames[0].lat;
         newTrip.countryName = data.geonames[0].countryName;
       } catch(error) {
         console.log(error);
+        let errors = '';
+        errors += '<p>Error: Unknown destination</p>';
+        apiError(errors)
+        newTrip.error = true;
+        return;
       }
     
       // Get weather condition in destination 

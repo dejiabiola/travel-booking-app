@@ -35,11 +35,11 @@ export const init = function() {
 
     getApiData(newTrip)
     .then(data => {
-      console.log(data);
+      if (data.error) {
+        return;
+      }
       populateUi(data);
-    })
-    
-    
+    }) 
   })
 
   

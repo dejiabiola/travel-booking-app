@@ -82,8 +82,15 @@ export const tripDaysDifference = function(newTrip) {
 
 export const prepareResultSection = function() {
   const resultSection = document.getElementById('result_section');
+  resultSection.classList.remove('display-hide');
   resultSection.classList.add('prepare-section');
   scrollToSection('result_section');
+}
+
+export const destroyResultSection = function() {
+  const resultSection = document.getElementById('result_section');
+  resultSection.classList.remove('display-hide');
+  resultSection.classList.remove('prepare-section');
 }
 
 export const formatDate = function(date) {
@@ -96,4 +103,10 @@ export const formatDate = function(date) {
 function getMonth(month) {
   const monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   return monthArray[month - 1];
+}
+
+export const apiError = function(error) {
+  destroyResultSection();
+  showErrorMessage(error);
+  scrollToSection('body_section')
 }
