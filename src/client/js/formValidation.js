@@ -77,6 +77,9 @@ export const validateForm = function() {
 
 
   if (!errors) {
+    const button = document.getElementById('submit');
+    button.disabled = true;
+    button.style.cursor = "not-allowed";
     prepareResultSection();
 
     const formatDepartureDate = formatDate(departureDate.value);
