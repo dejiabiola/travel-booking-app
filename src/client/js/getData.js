@@ -101,6 +101,7 @@ export const getApiData = async function(newTrip) {
         console.log(error);
       }
 
+      // Get extra information from helpers
       daysToTravel(newTrip);
       tripDaysDifference(newTrip);
     })()

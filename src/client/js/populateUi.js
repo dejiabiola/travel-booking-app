@@ -1,5 +1,6 @@
 
 export const populateUi = function(trip) {
+  // Get the result section, create a trip card and then append to the result section
   const resultSection = document.getElementById('result_section');
   
   const tripCard = document.createElement('div');

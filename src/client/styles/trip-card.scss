@@ -1,6 +1,6 @@
 #trip_card {
   background-color: white;
-  width: 600px;
+  width: 650px;
   border-radius: 10px;
   max-width: 100%;
   margin-right: 50px;
@@ -19,7 +19,7 @@ h3 {
 }
 
 .trip_image {
-  width: 600px;
+  width: 650px;
   height: 200px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -102,6 +102,13 @@ h4 {
 @media (min-width: 500px) {
   .list-item {
     margin-left: 30px;
+  }
+}
+
+@media (max-width: 470px) {
+  .trip-button {
+    width: 100%;
+    margin-bottom: 15px;
   }
 }
 

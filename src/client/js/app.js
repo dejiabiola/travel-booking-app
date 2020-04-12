@@ -1,5 +1,4 @@
 import { setDateMinimum } from './helpers';
-import { addTrip } from './addDestination';
 import { getApiData } from './getData';
 import { validateForm } from './formValidation';
 import { populateUi } from './populateUi';
@@ -9,6 +8,7 @@ import { populateUi } from './populateUi';
 
 export const init = function() {
 
+    // Set the min attribute in the input date field dynamically
     setDateMinimum();
 
   // if (departureDate.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
@@ -27,12 +27,15 @@ export const init = function() {
   submitButton.addEventListener('click', function(event) {
     event.preventDefault();
 
+    // Validate the form field, populate the input values into an object and assign to newTrip
     const newTrip = validateForm();
 
+    // If error, stop the code and return
     if (!newTrip) {
       return false;
     }
 
+    // get data from all api and populate the object
     getApiData(newTrip)
     .then(data => {
       if (data.error) {
@@ -42,6 +45,4 @@ export const init = function() {
     }) 
   })
 
-  
-  // addButton.addEventListener('click', addTrip)
 }

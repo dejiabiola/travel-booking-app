@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const mockAPIResponse = require('./mockAPI.js');
 const requestHandler = require('./requestHandler');
 
 
@@ -34,9 +33,7 @@ app.listen(8080, function () {
     console.log('Example app listening on port 8080')
 })
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
+
 
 
 app.post('/getCoordinates', requestHandler.getCoordinates);

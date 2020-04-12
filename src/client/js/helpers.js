@@ -1,4 +1,5 @@
 export const secondsToDhm = function(seconds) {
+  // Convert seconds to days, hours and minutes
   seconds = Number(seconds);
   const day = Math.floor(seconds / (3600*24));
   const hour = Math.floor(seconds % (3600*24) / 3600);
