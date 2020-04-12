@@ -1,4 +1,4 @@
-import { isFutureDate, showErrorMessage, isDateAfterThatDate  } from './helpers';
+import { isFutureDate, showErrorMessage, isDateAfterThatDate, prepareResultSection  } from './helpers';
 
 
 export const validateForm = function() {
@@ -77,7 +77,7 @@ export const validateForm = function() {
 
 
   if (!errors) {
-    document.getElementById('submit').classList.add('disabled');
+    prepareResultSection();
 
     return {
       location: departureCity.value, 
@@ -86,7 +86,6 @@ export const validateForm = function() {
       arrivalDate: arrivalDate.value
     }
   } else {
-    document.getElementById('submit').classList.remove('disabled')
     return false;
   }
 }

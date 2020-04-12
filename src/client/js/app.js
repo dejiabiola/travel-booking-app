@@ -2,6 +2,7 @@ import { setDateMinimum } from './helpers';
 import { addTrip } from './addDestination';
 import { getApiData } from './getData';
 import { validateForm } from './formValidation';
+import { populateUi } from './populateUi';
 
 
 
@@ -33,7 +34,7 @@ export const init = function() {
     }
 
     getApiData(newTrip)
-    .then(data => console.log(data))
+    .then(data => populateUi(data))
     
     
   })

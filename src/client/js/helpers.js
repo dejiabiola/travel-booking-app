@@ -27,7 +27,9 @@ export const isDateAfterThatDate = function (pastDate, futureDate) {
 }
 
 export const scrollToSection = function(sectionId) {
-  document.getElementById(sectionId).scrollIntoView({  behavior: 'smooth' });
+  document.getElementById(sectionId).scrollIntoView(false, {  
+    behavior: 'smooth',   
+  });
 }
 
 export const showErrorMessage = function(msg) {
@@ -71,4 +73,10 @@ export const dateDifference = function(departureDate, returnDate) {
   const secondsDifference = (departureDateRefact - returnDateRefact) / 1000;
   const daysToGo = secondsToDhm(secondsDifference);
   return daysToGo;
+}
+
+export const prepareResultSection = function() {
+  const resultSection = document.getElementById('result_section');
+  resultSection.classList.add('prepare-section');
+  scrollToSection('result_section');
 }
