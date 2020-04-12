@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebPackPlugin = require("html-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
@@ -8,13 +8,6 @@ module.exports = {
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
-    output: {
-      libraryTarget: 'var',
-      library: 'Client'
-    },
-    externals: {
-      jquery: 'jQuery'
-    },
     module: {
         rules: [
             {
@@ -26,10 +19,25 @@ module.exports = {
               test: /\.scss$/,
               use: ['style-loader', 'css-loader', 'sass-loader']
             },
+            {
+              test: /\.(png|svg|jpe?g|gif)$/i,
+              use: [{
+                loader: 'file-loader',
+                options: {
+                  name: '[name].[ext]',
+                  outputPath: 'media/',
+                  publicPath: 'media/'
+                },
+              }]
+            },
+            {
+              test: /\.html$/i,
+              loader: 'html-loader',
+            },
         ]
     },
     plugins: [
-        new HtmlWebPackPlugin({
+        new HtmlWebpackPlugin({
             template: "./src/client/views/index.html",
             filename: "./index.html",
         }),

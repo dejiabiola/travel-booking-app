@@ -33,7 +33,7 @@ export const scrollToSection = function(sectionId) {
 export const showErrorMessage = function(msg) {
   const errMsgBlock = document.getElementById('error-block');
   if (msg) {
-    errMsgBlock.querySelector('.js-err-message').innerHTML = msg;
+    errMsgBlock.innerHTML = msg;
     errMsgBlock.classList.add('active');
   } else {
     errMsgBlock.classList.add('in-active');

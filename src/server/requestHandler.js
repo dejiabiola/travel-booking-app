@@ -33,14 +33,14 @@ async function getImage(req, res) {
   let response = await fetch(`https://pixabay.com/api/?key=${apiKey}&q=${city}&image_type=photo`);
   try {
     let data = await response.json();
-    if (data.totalhits > 0) {
+    if (data.totalHits > 0) {
       res.send(data);
     } else {
       const country = req.body.country.replace(/\s/g, '+');
       let response = await fetch(`https://pixabay.com/api/?key=${apiKey}&q=${country}&image_type=photo`);
       try {
         let data = await response.json();
-        if (data.totalhits > 0) {
+        if (data.totalHits > 0) {
           res.send(data);
         } else {
           res.send({"use_placeholder": true})

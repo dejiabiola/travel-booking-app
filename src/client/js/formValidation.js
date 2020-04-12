@@ -44,7 +44,7 @@ export const validateForm = function() {
     departureDate.classList.add('error');
     departureDate.classList.remove('valid');
 
-    errors += `<p>Date of departure cannot be before today's date</p>`;
+    errors += `<p>Please select the date of departure</p>`;
     
   } else if (departureDate.value === '') {
     departureDate.classList.add('error');
@@ -76,17 +76,17 @@ export const validateForm = function() {
   showErrorMessage(errors);
 
 
-  if (!error) {
+  if (!errors) {
     document.getElementById('submit').classList.add('disabled');
 
     return {
-      location: location.value, 
+      location: departureCity.value, 
       destination: destination.value, 
       departureDate: departureDate.value, 
       arrivalDate: arrivalDate.value
     }
   } else {
-    document.getElementById('search').classList.remove('disabled')
+    document.getElementById('submit').classList.remove('disabled')
     return false;
   }
 }

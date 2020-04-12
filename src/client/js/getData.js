@@ -15,7 +15,8 @@ export const getApiData = async function(newTrip) {
       let data = await coordinateResponse.json();
       newTrip.destinationCode = data.geonames[0].countryCode;
       newTrip.longitude = data.geonames[0].lng;
-      newTrip.latitude = data.geonames[0].lat
+      newTrip.latitude = data.geonames[0].lat;
+      newTrip.countryName = data.geonames[0].countryName;
     } catch(error) {
       console.log(error);
     }
@@ -52,7 +53,7 @@ export const getApiData = async function(newTrip) {
       },
       body: JSON.stringify({
         'destination': newTrip.destination,
-        'country': newTrip.destination
+        'country': newTrip.countryName
       })
     })
     try {

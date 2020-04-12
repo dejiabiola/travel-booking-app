@@ -6,7 +6,7 @@
     "test": "jest",
     "test-watch": "jest --watchAll",
     "start": "nodemon src/server/server.js",
-    "build": "npm run test && webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server --config webpack.dev.js --open"
   },
   "keywords": [],

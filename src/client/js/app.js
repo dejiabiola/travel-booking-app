@@ -28,6 +28,10 @@ export const init = function() {
 
     const newTrip = validateForm();
 
+    if (!newTrip) {
+      return false;
+    }
+
     getApiData(newTrip)
     .then(data => console.log(data))
     

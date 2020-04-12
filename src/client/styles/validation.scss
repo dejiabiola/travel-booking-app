@@ -1,0 +1,25 @@
+.error {
+  border: 1.5px solid red;
+  outline: hotpink;
+}
+
+.valid {
+  border: 1.5px solid green;
+}
+
+.disabled {
+  cursor: none;
+}
+
+
+#error-block {
+  width: 100%;
+  font-size: 1.2rem;
+
+  p {
+    color: red;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+}
+
