@@ -9,6 +9,11 @@ import './styles/results.scss';
 import './styles/footer.scss';
 import './styles/trip-card.scss'
 
+import './media/sun.svg';
+import './media/aircraft.svg';
+import './media/calendar.svg';
+import './media/time.svg';
+
 // import backgroundImage from './media/background1.jpg';
 // import logo from './media/logo.svg';
 

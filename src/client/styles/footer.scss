@@ -1,6 +1,6 @@
 footer {
   padding: 30px;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   background: #282120;
   width: 100%;
@@ -38,4 +38,9 @@ footer {
 
 
   }
+}
+
+
+.position {
+  position: static;
 }

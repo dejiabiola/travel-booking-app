@@ -1,21 +1,41 @@
 #trip_card {
   background-color: white;
-  width: 400px;
+  width: 600px;
   border-radius: 10px;
+  max-width: 100%;
+}
+
+.trip_data {
+  padding: 10px;
+}
+
+h3 {
+  font-size: 1.6rem;
+  text-decoration: underline;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .trip_image {
-  width: 400px;
+  width: 600px;
   height: 200px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  max-width: 100%;
 }
 
 .svg {
   width: 30px;
   height: 30px;
-  margin-right: 30px;
+  margin-right: 40px;
   margin-left: 15px;
+}
+
+p {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .trip_destination, .trip_time_outer, .weather_forecast, .interactive_buttons, .trip_days_container {
@@ -30,19 +50,58 @@
 }
 
 li {
-  margin-bottom: 5px;
+  margin-bottom: 7px;
+  font-size: 1.3rem;
 }
 
 .interactive_buttons {
   padding: 0 20px;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 10px;
 }
 
-button {
-  background-color: red;
-  color: white;
-  padding: 15px;
-  border-radius: 10px;
+
+h4 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-decoration: underline;
 }
+
+.trip-button {
+  padding-top: 20px;
+  padding: 1rem;
+  background: rgb(192, 38, 38);
+  color: black;
+  font-size: .9rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+}
+
+.trip-button:hover {
+  background: rgb(128, 19, 19);
+  border: none;
+}
+
+.trip-button:active {
+  border: none;
+  background: rgb(97, 11, 11);
+}
+
+.add_trip {
+  color: black;
+  border: 1.4px solid rgb(192, 38, 38);
+  background: none;
+}
+
+
+@media (min-width: 500px) {
+  .list-item {
+    margin-left: 30px;
+  }
+}
+
+
