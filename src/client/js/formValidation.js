@@ -1,4 +1,4 @@
-import { isFutureDate, showErrorMessage, isDateAfterThatDate, prepareResultSection, formatDate  } from './helpers';
+import { isFutureDate, showErrorMessage, isDateAfterThatDate, prepareResultSection, formatDate, addLoadingLogo, clearResultSection  } from './helpers';
 
 
 export const validateForm = function() {
@@ -79,6 +79,8 @@ export const validateForm = function() {
   if (!errors) {
 
     prepareResultSection();
+    clearResultSection();
+    addLoadingLogo();
 
     const formatDepartureDate = formatDate(departureDate.value);
     const formatReturnDate = formatDate(arrivalDate.value);

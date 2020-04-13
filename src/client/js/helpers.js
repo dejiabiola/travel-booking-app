@@ -116,4 +116,14 @@ export const apiError = function(error) {
   scrollToSection('body_section')
 }
 
+export const addLoadingLogo = function() {
+  document.getElementById('loading_logo').classList.remove('toggle_logo');
+}
 
+export const removeLoadingLogo = function() {
+  document.getElementById('loading_logo').classList.add('toggle_logo');
+}
+
+export const clearResultSection = function() {
+  document.getElementById('result_section').innerHTML = "";
+}

@@ -1,6 +1,7 @@
-import { scrollToSection } from "./helpers";
+import { scrollToSection, removeLoadingLogo } from "./helpers";
 
 export const populateUi = function(tripArray) {
+  removeLoadingLogo();
   // Get the result section, create a trip card and then append to the result section
   const resultSection = document.getElementById('result_section');
   
