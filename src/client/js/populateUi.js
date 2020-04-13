@@ -1,4 +1,4 @@
-import { scrollToSection, removeLoadingLogo, capitalize } from "./helpers";
+import { scrollToSection, removeLoadingLogo, capitalize, lowerCase } from "./helpers";
 
 export const populateUi = function(tripArray) {
   removeLoadingLogo();
@@ -37,7 +37,7 @@ export const populateUi = function(tripArray) {
         <hr>
         <div class="weather_forecast">
           <img src="../media/sun.svg" alt="weather logo" class= "svg">
-          <p>Expected weather condition is ${tripArray[trip].temperature}<span>&#8451</span>, with ${tripArray[trip].weather}</p>
+          <p>Expected weather condition is ${tripArray[trip].temperature}<span>&#8451</span>, with ${lowerCase(tripArray[trip].weather)}</p>
         </div>
       </div>
       <hr>
