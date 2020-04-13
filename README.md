@@ -3,9 +3,11 @@
 # A Travel Booking Site
 
 ## Project Description
-This project is an app that takes a desired trip location and date from a user and displays the weather and an image of the location using information obtained from external APIs. It also displays some facts about the trip destination like the native language, currency and flag. 
+This project is an app that takes a desired trip location and date from a user and displays the weather and an image of the location using information obtained from external APIs. It also displays some facts about the trip destination like the native language, currency and flag.
+
 Additionally, the number of days until when the trip starts and the trip duration is also computated and displayed. 
 Finally, the project makes use of local storage to store the results of a trip search so the user can always come back to it anytime.
+
 The project makes use of tecnologies such as HTML, CSS, SASS, JavaScript, Node.js, Express.js, API, Webpack, Babel, and Jest
 
 ## Project Requirements
