@@ -1,4 +1,4 @@
-import { scrollToSection, removeLoadingLogo } from "./helpers";
+import { scrollToSection, removeLoadingLogo, capitalize } from "./helpers";
 
 export const populateUi = function(tripArray) {
   removeLoadingLogo();
@@ -16,7 +16,7 @@ export const populateUi = function(tripArray) {
         <h3>Trip Summary</h3>
         <div class="trip_destination">
           <img src="../media/aircraft.svg" alt="destination logo" class= "svg">
-          <p>From ${tripArray[trip].location} to ${tripArray[trip].destination}/${tripArray[trip].countryName}</p>
+          <p>From ${capitalize(tripArray[trip].location)} to ${capitalize(tripArray[trip].destination)}/${capitalize(tripArray[trip].countryName)}</p>
         </div>
         <hr>
         <div class="trip_time_outer">
@@ -31,7 +31,7 @@ export const populateUi = function(tripArray) {
           <img src="../media/calendar.svg" alt="calendar logo" class="svg">
           <div class="trip_days">
             <p>Your trip starts ${tripArray[trip].daysToGo !== "today" ? "in" : ""} ${tripArray[trip].daysToGo}</p>
-            <p>You will be spending ${tripArray[trip].daysOfTrip} in ${tripArray[trip].destination}</p>
+            <p>You will be spending ${tripArray[trip].daysOfTrip} in ${capitalize(tripArray[trip].destination)}</p>
           </div>
         </div>
         <hr>
@@ -44,8 +44,8 @@ export const populateUi = function(tripArray) {
       <div class="fun_facts">
         <h4 class="facts">Things to Note for Your Trip:</h4>
         <ol>
-          <li>&#9679<span class="list-item">The capital of ${tripArray[trip].destination} is ${tripArray[trip].countryName}</span></li>
-          <li>&#9679<span class="list-item">The primary language of ${tripArray[trip].countryName} is ${tripArray[trip].languages}</span></li>
+          <li>&#9679<span class="list-item">${capitalize(tripArray[trip].destination)} is located in ${capitalize(tripArray[trip].countryName)}</span></li>
+          <li>&#9679<span class="list-item">The primary language of ${capitalize(tripArray[trip].countryName)} is ${tripArray[trip].languages}</span></li>
           <li>&#9679<span class="list-item">Their national flag is <span><img src=${tripArray[trip].flagUrl} alt="flag logo" class= "svg"></span></span></li>
           <li>&#9679<span class="list-item">The currency spent there is the ${tripArray[trip].currencyName}(${tripArray[trip].currencySymbol})</span></li>
         </ol>

@@ -15,14 +15,14 @@
 h3 {
   font-size: 1.6rem;
   text-decoration: underline;
-  font-weight: bold;
   text-align: center;
   margin-bottom: 15px;
+  font-family: 'Fjalla One', sans-serif;
 }
 
 .trip_image {
   width: 650px;
-  height: 200px;
+  height: 300px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   max-width: 100%;
@@ -73,6 +73,7 @@ h4 {
   font-weight: bold;
   margin-bottom: 20px;
   text-decoration: underline;
+  font-family: 'Fjalla One', sans-serif;
 }
 
 .trip-button {

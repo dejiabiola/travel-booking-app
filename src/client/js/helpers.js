@@ -97,9 +97,15 @@ export const destroyResultSection = function() {
 }
 
 export const formatDate = function(date) {
-  const dateArray = date.split("-");
+  const datefield=document.createElement("input")
+  datefield.setAttribute("type", "date")
+  if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+    let dateArray = date.split("/");
+    return `${dateArray[1]} ${getMonth(dateArray[0])}, ${dateArray[2]}`; 
+  }
+  let dateArray = date.split("-");
 
-  return `${dateArray[2]} ${getMonth(dateArray[1])}, ${dateArray[0]}`
+  return `${dateArray[2]} ${getMonth(dateArray[1])}, ${dateArray[0]}`;
 
 }
 
@@ -126,4 +132,14 @@ export const removeLoadingLogo = function() {
 
 export const clearResultSection = function() {
   document.getElementById('result_section').innerHTML = "";
+}
+
+
+export const clearErrorSection = function() {
+  document.getElementById('error-block').innerHTML = "";
+}
+
+export const capitalize = (s) => {
+  if (typeof s !== 'string') return '';
+  return s.charAt(0).toUpperCase() + s.slice(1);
 }

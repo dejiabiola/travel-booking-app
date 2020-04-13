@@ -1,6 +1,8 @@
 // Import main Js Funtion
 import { init } from './js/app';
 
+
+
 // Import 
 import './styles/entry.scss';
 

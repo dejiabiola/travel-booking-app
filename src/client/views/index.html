@@ -4,7 +4,26 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
         <link rel="shortcut icon" type="image/svg" href="../media/travel.svg">
-        <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+
+        <!-- Safari doesn't support input date type. jQuery datepicker is used in this instance -->
+        <script type="text/javascript">
+          var datefield=document.createElement("input")
+          datefield.setAttribute("type", "date")
+          if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+            document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+            document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
+            document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n') 
+          }
+        </script>
+        <script>
+          if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
+            jQuery(function($){ //on document.ready
+              $('#departure_date').datepicker();
+              $('#arrival_date').datepicker();
+            })
+          }
+        </script>
+        <!-- End of jQuery script tag -->
         <title>Travel Booking App</title>
     </head>
 

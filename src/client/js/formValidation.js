@@ -44,7 +44,7 @@ export const validateForm = function() {
     departureDate.classList.add('error');
     departureDate.classList.remove('valid');
 
-    errors += `<p>Please select the date of departure</p>`;
+    errors += `<p>You have entered an invalid date of departure</p>`;
     
   } else if (departureDate.value === '') {
     departureDate.classList.add('error');
