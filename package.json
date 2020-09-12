@@ -19,7 +19,7 @@
     "eslint-loader": "4.0.0",
     "express": "^4.17.1",
     "jquery": "3.5.0",
-    "node-fetch": "2.6.0",
+    "node-fetch": "2.6.1",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5"
   },
